@@ -2,88 +2,210 @@
 <html>
 <head>
 <style>
-    .branch {
-        border: 1px solid #a2a2a2;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        transition: 0.3s;
+    .tree ul {
+        padding-top: 20px; 
+        position: relative;
+        
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
     }
-    .branch:hover {
-        box-shadow: 0px 12px 24px 0px rgba(0,0,0,0.2);
+
+    .tree li {
+        float: left; 
+        text-align: center;
+        list-style-type: none;
+        position: relative;
+        padding: 20px 5px 0 5px;
+        
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
     }
-    .header {
-        font-size: 20px;
-        font-weight: bold;
-        color: #0066cc;
+
+    /* We will use ::before and ::after to draw the connectors */
+
+    .tree li::before, .tree li::after{
+        content: '';
+        position: absolute; top: 0; right: 50%;
+        border-top: 1px solid #ccc;
+        width: 50%; height: 20px;
     }
-    .conclusion {
-        color: red;
-        font-weight: bold;
+    .tree li::after{
+        right: auto; left: 50%;
+        border-left: 1px solid #ccc;
     }
-    .antibiogram {
-        font-size: 16px;
-        color: #0066cc;
-        font-weight: bold;
+
+    /* We need to remove left-right connectors from elements without 
+    any siblings */
+    .tree li:only-child::after, .tree li:only-child::before {
+        display: none;
     }
+
+    /* Remove space at the end of the li */
+    .tree li:only-child{ padding: 0; }
+
+    /* Remove left connector from first child and 
+    right connector from last child */
+    .tree li:first-child::before, .tree li:last-child::after{
+        border: 0 none;
+    }
+
+    /* Adding back the vertical connector to the last nodes */
+    .tree li:last-child::before{
+        border-right: 1px solid #ccc;
+        border-radius: 0 5px 0 0;
+        -webkit-border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+    }
+    .tree li:first-child::after{
+        border-radius: 5px 0 0 0;
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+    }
+
+    /* Time to add downward connectors from parents */
+    .tree ul ul::before {
+        content: '';
+        position: absolute; top: 0; left: 50%;
+        border-left: 1px solid #ccc;
+        width: 0; height: 20px;
+    }
+
+    .tree li a {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #666;
+        font-family: arial, verdana, tahoma;
+        font-size: 11px;
+        display: inline-block;
+        
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+    }
+
+    /* Time for some hover effects */
+    /* We will apply the hover effect the the lineage of the element also */
+    .tree li a:hover, .tree li a:hover+ul li a {
+        background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+    }
+    /* Connector styles on hover */
+    .tree li a:hover+ul li::after, 
+    .tree li a:hover+ul li::before, 
+    .tree li a:hover+ul::before, 
+    .tree li a:hover+ul ul::before {
+        border-color:  #94a0b4;
+    }
+
+    /* Thats all folks! */
 </style>
 </head>
 <body>
 
-<h1>Análisis de Mecanismos de Resistencia</h1>
-<p>Aquí exploramos diferentes hipótesis para los mecanismos de resistencia observados en una cepa de K. pneumoniae. Las hipótesis se evalúan en función del patrón de resistencia observado, que incluye alta resistencia a Pip Tazo y aztreonam, resistencia a cefepime, alta resistencia a ceftazidime y resistencia a carbapenems (especialmente ertapenem).</p>
+<!-- Your existing code here -->
 
-<div class="antibiogram">
-<h2>Antibiograma</h2>
-<p>Test de Carba NP: negativo.</p>
-<p>AMIKACINA: 16 S</p>
-<p>Ampicilina/sulbactam: >=32 R</p>
-<p>CEFTAZIDIMA/AVIBACTAM: 0.25 S</p>
-<p>AZTREONAM: >=64 R</p>
-<p>BLEE (ESBL): (-)</p>
-<p>CEFEPIME: >=32 R</p>
-<p>CEFTAZIDIMA: >=64 R</p>
-<p>ERTAPENEM: >=8 R</p>
-<p>IMIPENEM: 2 I</p>
-<p>MEROPENEM: >=16 R</p>
-<p>PIPERACILINA/TAZOBACTAM: >=128 R</p>
+<div class="tree">
+<ul>
+    <li>
+        <a href="#">Is the organism resistant to aztreonam?</a>
+        <ul>
+            <li>
+                <a href="#">Yes</a>
+                <ul>
+                    <li>
+                        <a href="#">Is ESBL positive?</a>
+                        <ul>
+                            <li><a href="#">Yes: Likely ESBL mediated resistance (based on previous culture)</a></li>
+                            <li>
+                                <a href="#">No</a>
+                                <ul>
+                                    <li>
+                                        <a href="#">Possible AmpC or combined mechanism</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Is Cefepime resistant?</a>
+                                                <ul>
+                                                    <li><a href="#">Yes: Likely AmpC mediated resistance</a></li>
+                                                    <li>
+                                                        <a href="#">No</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#">Possible porin loss, combined mechanism</a>
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="#">Is Ertapenem resistant?</a>
+                                                                        <ul>
+                                                                            <li><a href="#">Yes: Possible porin loss, combined mechanism</a></li>
+                                                                            <li><a href="#">No: More evidence needed</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li><a href="#">No: More evidence needed</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">No: More evidence needed</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">No</a>
+                        <ul>
+                            <li>
+                                <a href="#">Possible porin loss or carbapenemase</a>
+                                <ul>
+                                    <li>
+                                        <a href="#">Is there resistance to at least two carbapenems (Ertapenem, Meropenem, Imipenem)?</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Yes</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">Likely carbapenemase or porin loss</a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#">Carba NP test?</a>
+                                                                <ul>
+                                                                    <li><a href="#">Positive: Likely carbapenemase mediated resistance</a></li>
+                                                                    <li><a href="#">Negative: Possible porin loss</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">No: Likely porin loss</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">No: More evidence needed</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
 </div>
 
-<div class="branch">
-    <div class="header">1. Resistencia mediada por ESBL</div>
-    <p>Se sospechó originalmente debido a la historia del paciente. Sin embargo, el fenotipo es ahora negativo para ESBL. Además, se presenta resistencia a aztreonam.</p>
-    <div class="conclusion">Conclusión: Poco probable 🌟</div>
-</div>
+<!-- Your existing code here -->
+<p>Proyecto realizado por: <a href="https://twitter.com/Dis_Trackted">Bastian Venegas Arevalo, MD</a>, estudiante del diploma de AI en UC.cl.</p>
+<p>Este proyecto es de licencia MIT. Invitamos a las personas interesadas a contribuir siguiendo las prácticas habituales de los proyectos en GitHub, como el envío de solicitudes de pull request. Este recurso tiene un propósito exclusivamente educativo y no debe emplearse como sustituto ni guía para brindar atención médica a un paciente concreto.</p>
+<p>Nuestra intención es facilitar el aprendizaje de una habilidad tan compleja como el análisis básico de susceptibilidad para médicos no especialistas. Este recurso no pretende actualizarse de forma regular ni proporcionar heurísticas universales, dado la naturaleza evolutiva y rápida de la infectología y los mecanismos de resistencia, los cuales pueden variar según la ubicación geográfica, la exposición a diferentes antimicrobianos y la posible emergencia de mecanismos previamente desconocidos.</p>
+<p>Si bien este recurso no pretende ser una guía completa o constantemente actualizada, es útil para ilustrar, mediante un ejemplo concreto, mi esfuerzo por sistematizar el proceso de análisis. Hago una analogía con algunos principios de búsqueda en informática.</p>
 
-<div class="branch">
-    <div class="header">2. Resistencia mediada por AmpC</div>
-    <p>Podría explicar la resistencia a cefalosporinas, incluyendo cefepime. Sin embargo, no puede explicar la resistencia a aztreonam.</p>
-    <div class="conclusion">Conclusión: Poco probable 🌟</div>
-</div>
-
-<div class="branch">
-    <div class="header">3. Resistencia mediada por carbapenemasa</div>
-    <p>La prueba de Carba NP es negativa. Sin embargo, no podemos descartar la presencia de una carbapenemasa no detectada por la prueba, por ejemplo, OXA-48.</p>
-    <div class="conclusion">Conclusión: Posible 🌟🌟🌟</div>
-</div>
-
-<div class="branch">
-    <div class="header">4. Pérdida de porinas</div>
-    <p>Podría explicar la resistencia a ertapenem y cefalosporinas. Sin embargo, típicamente no conferiría resistencia a aztreonam.</p>
-    <div class="conclusion">Conclusión: Posible 🌟🌟🌟</div>
-</div>
-
-<div class="branch">
-    <div class="header">5. Mecanismos Combinados</div>
-    <p>El perfil de resistencia podría deberse a una combinación de factores, como una carbapenemasa junto con ESBLs o beta-lactamasas AmpC, y una pérdida de porinas.</p>
-    <div class="conclusion">Conclusión: Probable 🌟🌟🌟🌟</div>
-</div>
-
-<p>Nota: La resistencia a Pip Tazo es extremadamente alta. La alta resistencia a aztreonam es normalmente útil para evaluar la probabilidad de ESBL entre otros. La resistencia a cefepime es útil para diferenciar el mecanismo AmpC en algunas ocasiones. La ceftazidima es altamente resistente, lo cual puede ser relevante para este tipo de análisis. Los carbapenems, como Imipenem y Meropenem, todavía son relativamente viables a esos valores de MIC optimizando los parámetros de PK/PD en dosis y tiempo de infusión. Sin embargo, organizaciones microbiológicas internacionales recomendarían buscar la actividad de carbapenemasa. Ertapenem definitivamente no es una opción (definitivamente resistente).</p>
-
-<p>Hecho por: <a href="https://twitter.com/Dis_Trackted">Bastian Venegas Arevalo, MD</a> - Estudiante de diploma de AI en UC.cl</p>
-<p>Este es un proyecto de licencia MIT. Invitamos a aquellos interesados a contribuir de la manera habitual para los proyectos de GitHub (solicitar pull request). Este recurso está destinado únicamente a fines educativos y no debe usarse como sustituto o guía para proporcionar atención médica a un paciente real concreto. El objetivo es facilitar la adquisición de una habilidad compleja como son los análisis básicos de susceptibilidad para médicos no especialistas. Este recurso no pretende ser acutalizado de forma regular ni contener heurísticas universales, dado la naturaleza rápidamente evolutiva de la infectología y los mecanismos de resistencia según ubicación geográfica, exposición a diferentes antimicrobianos, y la siempre posibe emergencia de mecanismos no previamente conocidos. Sin embargo, pero es útil para explicar con un ejemplo concreto mi intento de sistematizar el proceso de análisis, haciendo una analogía con algunos tipos de principios de búsquda informática.</p>
-
+    
 </body>
 </html>
