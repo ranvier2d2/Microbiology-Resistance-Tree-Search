@@ -2,65 +2,100 @@
 <html>
 <head>
     <title>Análisis de Mecanismos de Resistencia de Bacilos Gramnegativos MDR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .reveal-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<h1>Análisis de los mecanismos de resistencia en una cepa de K. pneumoniae</h1>
+<div class="container">
+    <h1>Análisis de los mecanismos de resistencia en una cepa de K. pneumoniae</h1>
 
-<p>Aquí exploramos diferentes hipótesis para los mecanismos de resistencia observados en una cepa de K. pneumoniae. Las hipótesis se evalúan en función del patrón de resistencia observado.</p>
+    <p>Aquí exploramos diferentes hipótesis para los mecanismos de resistencia observados en una cepa de K. pneumoniae. Las hipótesis se evalúan en función del patrón de resistencia observado.</p>
 
-<h2>Diagrama para ayudar a inferir el mecanismo genético de Resistencia a Antimicrobianos en Bacilos Gramnegativos MDR a partir de antibiograma y test fenotípicos de disponibilidad habituales</h2>
-<img src="https://raw.githubusercontent.com/bvenegasa/Microbiology-Resistance-Tree-Search/main/diagram.svg" alt="Gráfico Mermaid">
+    <h2>Diagrama para ayudar a inferir el mecanismo genético de Resistencia a Antimicrobianos en Bacilos Gramnegativos MDR a partir de antibiograma y test fenotípicos de disponibilidad habituales</h2>
+    <img src="https://raw.githubusercontent.com/bvenegasa/Microbiology-Resistance-Tree-Search/main/diagram.svg" alt="Gráfico Mermaid">
 
-<p>Este diagrama proporciona un enfoque sistemático para analizar e inferir los mecanismos genéticos potenciales de resistencia a antimicrobianos en bacilos Gramnegativos multirresistentes (MDR), basado en los resultados de pruebas fenotípicas de rutina y un antibiograma.</p>
+    <p>Este diagrama proporciona un enfoque sistemático para analizar e inferir los mecanismos genéticos potenciales de resistencia a antimicrobianos en bacilos Gramnegativos multirresistentes (MDR), basado en los resultados de pruebas fenotípicas de rutina y un antibiograma.</p>
 
-<p>El flujo del diagrama comienza con una cepa bacteriana que muestra resistencia a las cefalosporinas de tercera generación. A partir de allí, se realiza una serie de pruebas y análisis para inferir el mecanismo genético de resistencia. Es importante tener en cuenta que este diagrama es una guía y no sustituye a la consulta a un especialista. La epidemiología de la resistencia a los antibióticos puede variar entre diferentes poblaciones y a lo largo del tiempo.</p>
+    <p>El flujo del diagrama comienza con una cepa bacteriana que muestra resistencia a las cefalosporinas de tercera generación. A partir de allí, se realiza una serie de pruebas y análisis para inferir el mecanismo genético de resistencia. Es importante tener en cuenta que este diagrama es una guía y no sustituye a la consulta a un especialista. La epidemiología de la resistencia a los antibióticos puede variar entre diferentes poblaciones y a lo largo del tiempo.</p>
 
-<h2>Relevancia de la Resistencia Antimicrobiana</h2>
-<p>Los bacilos Gramnegativos son una fuente importante de infecciones nosocomiales y su resistencia a los antimicrobianos es una creciente preocupación global. Estos organismos son una causa importante de infecciones en pacientes hospitalizados, particularmente en las unidades de cuidados intensivos. La resistencia a los antimicrobianos limita las opciones de tratamiento y puede dar lugar a resultados más graves, incluyendo una mayor mortalidad. Con la continua evolución de la resistencia antimicrobiana, se espera que sea una de las principales causas de muerte a nivel mundial en las próximas décadas. Este contexto subraya la importancia de entender cómo inferir los posibles mecanismos de resistencia a los antimicrobianos en bacilos Gramnegativos multirresistentes (MDR).</p>
+    <h2>Relevancia de la Resistencia Antimicrobiana</h2>
+    <p>Los bacilos Gramnegativos son una fuente importante de infecciones nosocomiales y su resistencia a los antimicrobianos es una creciente preocupación global. Estos organismos son una causa importante de infecciones en pacientes hospitalizados, particularmente en las unidades de cuidados intensivos. La resistencia a los antimicrobianos limita las opciones de tratamiento y puede dar lugar a resultados más graves, incluyendo una mayor mortalidad. Con la continua evolución de la resistencia antimicrobiana, se espera que sea una de las principales causas de muerte a nivel mundial en las próximas décadas. Este contexto subraya la importancia de entender cómo inferir los posibles mecanismos de resistencia a los antimicrobianos en bacilos Gramnegativos multirresistentes (MDR).</p>
 
-<h2>Antibiograma de K. pneumoniae</h2>
-<ul>
-    <li>Prueba de Carba NP: negativo</li>
-    <li>AMIKACINA: 16 S</li>
-    <li>Ampicilina/sulbactam: >=32 R</li>
-    <li>CEFTAZIDIMA/AVIBACTAM: 0.25 S</li>
-    <li>AZTREONAM: >=64 R</li>
-    <li>BLEE (ESBL): (-)</li>
-    <li>CEFEPIME: >=32 R</li>
-    <li>CEFTAZIDIMA: >=64 R</li>
-    <li>ERTAPENEM: >=8 R</li>
-    <li>IMIPENEM: 2 I</li>
-    <li>MEROPENEM: >=16 R</li>
-    <li>PIPERACILINA/TAZOBACTAM: >=128 R</li>
-</ul>
+    <h2>Antibiograma de K. pneumoniae</h2>
+    <ul>
+        <li>Prueba de Carba NP: negativo</li>
+        <li>AMIKACINA: 16 S</li>
+        <li>Ampicilina/sulbactam: >=32 R</li>
+        <li>CEFTAZIDIMA/AVIBACTAM: 0.25 S</li>
+        <li>AZTREONAM: >=64 R</li>
+        <li>BLEE (ESBL): (-)</li>
+        <li>CEFEPIME: >=32 R</li>
+        <li>CEFTAZIDIMA: >=64 R</li>
+        <li>ERTAPENEM: >=8 R</li>
+        <li>IMIPENEM: 2 I</li>
+        <li>MEROPENEM: >=16 R</li>
+        <li>PIPERACILINA/TAZOBACTAM: >=128 R</li>
+    </ul>
 
-<h2>Entendiendo las Pruebas Clave y sus Limitaciones</h2>
-<!-- Aquí va el contenido sobre las pruebas y sus limitaciones -->
-<p>Para entender completamente el antibiograma, es crucial comprender las pruebas fenotípicas que se han realizado y las limitaciones que estas pueden tener:</p>
+    <h2>Entendiendo las Pruebas Clave y sus Limitaciones</h2>
+    <p>Para entender completamente el antibiograma, es crucial comprender las pruebas fenotípicas que se han realizado y las limitaciones que estas pueden tener:</p>
 
-<h3>Prueba fenotípica de ESBL (BLEE)</h3>
-<p>Esta es un tipo de prueba de sensibilidad al antibiótico que se utiliza para identificar bacterias productoras de Beta-lactamasas de espectro extendido (ESBL). En la prueba, se añade ácido clavulánico (un inhibidor de beta-lactamasas) a las cefalosporinas de tercera generación. Si la bacteria es productora de ESBL, será resistente a la cefalosporina sola, pero susceptible a la combinación de cefalosporina y ácido clavulánico. Esto se debe a que el ácido clavulánico inhibe la actividad de las ESBL, permitiendo que la cefalosporina haga su trabajo. Un error común es el enmascaramiento de la producción de ESBL por la presencia de otras resistencias, como la producción de AmpC plasmídica o resistencia a quinolonas.</p>
+    <h3>Prueba fenotípica de ESBL (BLEE)</h3>
+    <p>Esta es un tipo de prueba de sensibilidad al antibiótico que se utiliza para identificar bacterias productoras de Beta-lactamasas de espectro extendido (ESBL). En la prueba, se añade ácido clavulánico (un inhibidor de beta-lactamasas) a las cefalosporinas de tercera generación. Si la bacteria es productora de ESBL, será resistente a la cefalosporina sola, pero susceptible a la combinación de cefalosporina y ácido clavulánico. Esto se debe a que el ácido clavulánico inhibe la actividad de las ESBL, permitiendo que la cefalosporina haga su trabajo. Un error común es el enmascaramiento de la producción de ESBL por la presencia de otras resistencias, como la producción de AmpC plasmídica o resistencia a quinolonas.</p>
 
-<h3>Prueba de Carba NP</h3>
-<p>Esta prueba se utiliza para detectar la producción de carbapenemasas en bacterias Gramnegativas. En esta prueba, se combinan una solución de imipenem (un carbapenem) y fenol rojo (un indicador de pH) con la bacteria en cuestión. Si la bacteria produce carbapenemasas, degradará el imipenem, lo que provocará un cambio de pH que cambiará el color del fenol rojo de rojo a amarillo. Una limitación de la prueba de Carba NP es que puede dar resultados falsos negativos con productores de OXA-48 y variantes de carbapenemasas de tipo OXA que hidrolizan imipenem con baja eficacia.</p>
+    <h3>Prueba de Carba NP</h3>
+    <p>Esta prueba se utiliza para detectar la producción de carbapenemasas en bacterias Gramnegativas. En esta prueba, se combinan una solución de imipenem (un carbapenem) y fenol rojo (un indicador de pH) con la bacteria en cuestión. Si la bacteria produce carbapenemasas, degradará el imipenem, lo que provocará un cambio de pH que cambiará el color del fenol rojo de rojo a amarillo. Una limitación de la prueba de Carba NP es que puede dar resultados falsos negativos con productores de OXA-48 y variantes de carbapenemasas de tipo OXA que hidrolizan imipenem con baja eficacia.</p>
 
-<p>La interpretación correcta de los resultados de las pruebas fenotípicas requiere una comprensión sólida de la microbiología y la resistencia a los antibióticos, y estos casos complejos a menudo requieren la confirmación con pruebas genéticas o moleculares.</p>
+    <p>La interpretación correcta de los resultados de las pruebas fenotípicas requiere una comprensión sólida de la microbiología y la resistencia a los antibióticos, y estos casos complejos a menudo requieren la confirmación con pruebas genéticas o moleculares.</p>
 
-<h2>Análisis de los Resultados</h2>
-<p>Procedemos a analizar el antibiograma utilizando el diagrama de flujo proporcionado. Este análisis se basa en la información disponible y siempre es recomendable consultar a un experto en el tema para un análisis más detallado.</p>
+    <h2>Análisis de los Resultados</h2>
+    <button class="reveal-button" onclick="revealResults()">Revelar resultados</button>
+    <div id="results" class="hidden">
+        <ol>
+            <li>Inicio: Resistencia a Cefalosporinas de 3ra Generación: La bacteria muestra resistencia a las cefalosporinas de tercera generación como Ceftazidima.</li>
+            <li>ESBL Fenotípico Positivo?: La prueba de detección de beta-lactamasas de espectro extendido (ESBL) fue negativa.</li>
+            <li>La bacteria es resistente a Aztreonam?: La bacteria muestra resistencia al Aztreonam.</li>
+            <li>La bacteria es resistente a Carbapenems?: La bacteria muestra resistencia a algunos carbapenems como Ertapenem y Meropenem, pero no a todos, por ejemplo, Imipenem.</li>
+            <li>Carba-NP positivo?: La prueba Carba-NP fue negativa.</li>
+        </ol>
 
-<ol>
-    <li>Inicio: Resistencia a Cefalosporinas de 3ra Generación: La bacteria muestra resistencia a las cefalosporinas de tercera generación como Ceftazidima.</li>
-    <li>ESBL Fenotípico Positivo?: La prueba de detección de beta-lactamasas de espectro extendido (ESBL) fue negativa.</li>
-    <li>La bacteria es resistente a Aztreonam?: La bacteria muestra resistencia al Aztreonam.</li>
-    <li>La bacteria es resistente a Carbapenems?: La bacteria muestra resistencia a algunos carbapenems como Ertapenem y Meropenem, pero no a todos, por ejemplo, Imipenem.</li>
-    <li>Carba-NP positivo?: La prueba Carba-NP fue negativa.</li>
-</ol>
+        <p>En este punto, el diagrama sugiere que la bacteria tiene una posible carbapenemasa OXA-48, ya que la resistencia a TAZONAM es >=64, y puede dar falso negativo CarbaNP. Sin embargo, este es un análisis inicial y se necesitan más pruebas para confirmar este mecanismo de resistencia.</p>
 
-<p>En este punto, el diagrama sugiere que la bacteria tiene una posible carbapenemasa OXA-48, ya que la resistencia a TAZONAM es >=64, y puede dar falso negativo CarbaNP. Sin embargo, este es un análisis inicial y se necesitan más pruebas para confirmar este mecanismo de resistencia.</p>
-
-<p>Proyecto realizado por: <a href="https://twitter.com/Dis_Trackted">@Dis_Trackted - Bastián Venegas, MD</a>, estudiante del diplomado de Inteligencia Artificial en UC.cl.</p>
-<p>Este proyecto tiene licencia MIT. Invitamos a las personas interesadas a contribuir siguiendo las prácticas habituales de los proyectos en GitHub, como el envío de solicitudes de pull request. Este recurso tiene un propósito exclusivamente educativo y no debe emplearse como sustituto ni guía para brindar atención médica a un paciente concreto.</p>
-<p>Nuestra intención es facilitar el aprendizaje de una habilidad tan compleja como el análisis básico de susceptibilidad para médicos no especialistas. Este recurso no pretende actualizarse de forma regular ni proporcionar heurísticas universales, dado la naturaleza evolutiva y rápida de la infectología y los mecanismos de resistencia, los cuales pueden variar según la ubicación geográfica, la exposición a diferentes antimicrobianos.</p>
+        <p>Proyecto realizado por: <a href="https://twitter.com/Dis_Trackted">@Dis_Trackted - Bastián Venegas, MD</a>, estudiante del diplomado de Inteligencia Artificial en UC.cl.</p>
+        <p>Este proyecto tiene licencia MIT. Invitamos a las personas interesadas a contribuir siguiendo las prácticas habituales de los proyectos en GitHub, como el envío de solicitudes de pull request. Este recurso tiene un propósito exclusivamente educativo y no debe emplearse como sustituto ni guía para brindar atención médica a un paciente concreto.</p>
+        <p>Nuestra intención es facilitar el aprendizaje de una habilidad tan compleja como el análisis básico de susceptibilidad para médicos no especialistas. Este recurso no pretende actualizarse de forma regular ni proporcionar heurísticas universales, dado la naturaleza evolutiva y rápida de la infectología y los mecanismos de resistencia, los cuales pueden variar según la ubicación geográfica, la exposición a diferentes antimicrobianos.</p>
+    </div>
+    <script>
+        function revealResults() {
+            var results = document.getElementById("results");
+            results.classList.remove("hidden");
+        }
+    </script>
+</div>
 </body>
 </html>
