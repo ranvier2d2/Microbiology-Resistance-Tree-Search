@@ -29,7 +29,8 @@
 
 <script>
     var config = {
-        startOnLoad: true
+        startOnLoad: true,
+        theme: 'default'
     };
     mermaid.initialize(config);
 
@@ -44,7 +45,7 @@
         F --> |"Combinación de Factores"| H(Mecanismo Combinado - Probable)
     `;
 
-    var graph = mermaid.mermaidAPI.render('graphDiv', graphDefinition, function(svgCode) {
+    var graph = mermaid.render('graphDiv', graphDefinition, function(svgCode, bindFunctions){
         document.getElementById('resistanceGraph').innerHTML = svgCode;
     });
 </script>
