@@ -22,42 +22,68 @@
         color: red;
         font-weight: bold;
     }
+    .antibiogram {
+        font-size: 16px;
+        color: #0066cc;
+        font-weight: bold;
+    }
 </style>
 </head>
 <body>
 
-<h1>Resistance Mechanism Analysis</h1>
-<p>Here we explore different hypotheses for the resistance mechanisms observed in a K. pneumoniae strain. The hypotheses are evaluated based on the observed resistance pattern, which includes high resistance to Pip Tazo and aztreonam, cefepime resistance, high resistance to ceftazidime, and resistance to carbapenems (especially ertapenem).</p>
+<h1>Análisis de Mecanismos de Resistencia</h1>
+<p>Aquí exploramos diferentes hipótesis para los mecanismos de resistencia observados en una cepa de K. pneumoniae. Las hipótesis se evalúan en función del patrón de resistencia observado, que incluye alta resistencia a Pip Tazo y aztreonam, resistencia a cefepime, alta resistencia a ceftazidime y resistencia a carbapenems (especialmente ertapenem).</p>
 
-<div class="branch">
-    <div class="header">1. ESBL mediated resistance</div>
-    <p>Originally suspected due to patient history. However, the phenotype is now ESBL negative. Additionally, aztreonam resistance is present.</p>
-    <div class="conclusion">Conclusion: Unlikely 🌟</div>
+<div class="antibiogram">
+<h2>Antibiograma</h2>
+<p>Test de Carba NP: negativo.</p>
+<p>AMIKACINA: 16 S</p>
+<p>Ampicilina/sulbactam: >=32 R</p>
+<p>CEFTAZIDIMA/AVIBACTAM: 0.25 S</p>
+<p>AZTREONAM: >=64 R</p>
+<p>BLEE (ESBL): (-)</p>
+<p>CEFEPIME: >=32 R</p>
+<p>CEFTAZIDIMA: >=64 R</p>
+<p>ERTAPENEM: >=8 R</p>
+<p>IMIPENEM: 2 I</p>
+<p>MEROPENEM: >=16 R</p>
+<p>PIPERACILINA/TAZOBACTAM: >=128 R</p>
 </div>
 
 <div class="branch">
-    <div class="header">2. AmpC mediated resistance</div>
-    <p>Could explain cephalosporin resistance, including cefepime. But, it cannot explain aztreonam resistance.</p>
-    <div class="conclusion">Conclusion: Unlikely 🌟</div>
+    <div class="header">1. Resistencia mediada por ESBL</div>
+    <p>Se sospechó originalmente debido a la historia del paciente. Sin embargo, el fenotipo es ahora negativo para ESBL. Además, se presenta resistencia a aztreonam.</p>
+    <div class="conclusion">Conclusión: Poco probable 🌟</div>
 </div>
 
 <div class="branch">
-    <div class="header">3. Carbapenemase mediated resistance</div>
-    <p>Carba NP test is negative. However, we can't rule out carbapenemase not detected by the test, e.g., OXA-48.</p>
-    <div class="conclusion">Conclusion: Possible 🌟🌟🌟</div>
+    <div class="header">2. Resistencia mediada por AmpC</div>
+    <p>Podría explicar la resistencia a cefalosporinas, incluyendo cefepime. Sin embargo, no puede explicar la resistencia a aztreonam.</p>
+    <div class="conclusion">Conclusión: Poco probable 🌟</div>
 </div>
 
 <div class="branch">
-    <div class="header">4. Porin loss</div>
-    <p>Could explain resistance to ertapenem and cephalosporins. However, it typically wouldn't confer aztreonam resistance.</p>
-    <div class="conclusion">Conclusion: Possible 🌟🌟🌟</div>
+    <div class="header">3. Resistencia mediada por carbapenemasa</div>
+    <p>La prueba de Carba NP es negativa. Sin embargo, no podemos descartar la presencia de una carbapenemasa no detectada por la prueba, por ejemplo, OXA-48.</p>
+    <div class="conclusion">Conclusión: Posible 🌟🌟🌟</div>
 </div>
 
 <div class="branch">
-    <div class="header">5. Combined Mechanisms</div>
-    <p>The resistance profile could be due to a combination of factors, such as a carbapenemase along with ESBLs or AmpC beta-lactamases, and a porin loss.</p>
-    <div class="conclusion">Conclusion: Likely 🌟🌟🌟🌟</div>
+    <div class="header">4. Pérdida de porinas</div>
+    <p>Podría explicar la resistencia a ertapenem y cefalosporinas. Sin embargo, típicamente no conferiría resistencia a aztreonam.</p>
+    <div class="conclusion">Conclusión: Posible 🌟🌟🌟</div>
 </div>
+
+<div class="branch">
+    <div class="header">5. Mecanismos Combinados</div>
+    <p>El perfil de resistencia podría deberse a una combinación de factores, como una carbapenemasa junto con ESBLs o beta-lactamasas AmpC, y una pérdida de porinas.</p>
+    <div class="conclusion">Conclusión: Probable 🌟🌟🌟🌟</div>
+</div>
+
+<p>Nota: La resistencia a Pip Tazo es extremadamente alta. La alta resistencia a aztreonam es normalmente útil para evaluar la probabilidad de ESBL entre otros. La resistencia a cefepime es útil para diferenciar el mecanismo AmpC en algunas ocasiones. La ceftazidima es altamente resistente, lo cual puede ser relevante para este tipo de análisis. Los carbapenems, como Imipenem y Meropenem, todavía son relativamente viables a esos valores de MIC optimizando los parámetros de PK/PD en dosis y tiempo de infusión. Sin embargo, organizaciones microbiológicas internacionales recomendarían buscar la actividad de carbapenemasa. Ertapenem definitivamente no es una opción (definitivamente resistente).</p>
+
+<p>Hecho por: <a href="https://twitter.com/Dis_Trackted">Bastian Venegas Arevalo, MD</a> - Estudiante de diploma de AI en UC.cl</p>
+<p>Este es un proyecto de licencia MIT. Invitamos a aquellos interesados a contribuir de la manera habitual para los proyectos de GitHub (solicitar pull request). Este recurso está destinado únicamente a fines educativos y no debe usarse como sustituto o guía para proporcionar atención médica a un paciente real concreto. El objetivo es facilitar la adquisición de una habilidad compleja como son los análisis básicos de susceptibilidad para médicos no especialistas. Este recurso no pretende ser acutalizado de forma regular ni contener heurísticas universales, dado la naturaleza rápidamente evolutiva de la infectología y los mecanismos de resistencia según ubicación geográfica, exposición a diferentes antimicrobianos, y la siempre posibe emergencia de mecanismos no previamente conocidos. Sin embargo, pero es útil para explicar con un ejemplo concreto mi intento de sistematizar el proceso de análisis, haciendo una analogía con algunos tipos de principios de búsquda informática.</p>
 
 </body>
 </html>
