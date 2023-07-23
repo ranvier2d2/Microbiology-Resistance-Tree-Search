@@ -43,6 +43,9 @@
         a {
             color: #fff;
         }
+        .section {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -68,18 +71,19 @@
         <li>Ampicilina/sulbactam: >=32 R</li>
         <li>CEFTAZIDIMA/AVIBACTAM: 0.25 S</li>
         <li>AZTREONAM: >=64 R</li>
-        <li>BLEE (ESBL): (-)</li>
-        <li>CEFEPIME: >=32 R</li>
         <li>CEFTAZIDIMA: >=64 R</li>
+        <li>CIPROFLOXACINO: >=4 R</li>
         <li>ERTAPENEM: >=8 R</li>
-        <li>IMIPENEM: 2 I</li>
-        <li>MEROPENEM: >=16 R</li>
+        <li>IMIPENEM: 1 S</li>
+        <li>LEVOFLOXACINO: >=8 R</li>
+        <li>MEROPENEM: >=8 R</li>
         <li>PIPERACILINA/TAZOBACTAM: >=128 R</li>
+        <li>TRIMETOPRIMA/SULFAMETOXAZOL: >=320 R</li>
     </ul>
 
-    <h2>Entendiendo las Pruebas Clave y sus Limitaciones</h2>
-    <p>Para entender completamente el antibiograma, es crucial comprender las pruebas fenotípicas que se han realizado y las limitaciones que estas pueden tener:</p>
+    <p>Basándote en el diagrama y en los resultados del antibiograma, ¿qué mecanismo de resistencia inferirías?</p>
 
+    <h2>Pruebas Fenotípicas de Resistencia a Antimicrobianos</h2>
     <h3>Prueba fenotípica de ESBL (BLEE)</h3>
     <p>Esta es un tipo de prueba de sensibilidad al antibiótico que se utiliza para identificar bacterias productoras de Beta-lactamasas de espectro extendido (ESBL). En la prueba, se añade ácido clavulánico (un inhibidor de beta-lactamasas) a las cefalosporinas de tercera generación. Si la bacteria es productora de ESBL, será resistente a la cefalosporina sola, pero susceptible a la combinación de cefalosporina y ácido clavulánico. Esto se debe a que el ácido clavulánico inhibe la actividad de las ESBL, permitiendo que la cefalosporina haga su trabajo. Un error común es el enmascaramiento de la producción de ESBL por la presencia de otras resistencias, como la producción de AmpC plasmídica o resistencia a quinolonas.</p>
 
@@ -91,19 +95,24 @@
     <h2>Análisis de los Resultados</h2>
     <button class="reveal-button" onclick="revealResults()">Revelar resultados</button>
     <div id="results" class="hidden">
-        <ol>
-            <li>Inicio: Resistencia a Cefalosporinas de 3ra Generación: La bacteria muestra resistencia a las cefalosporinas de tercera generación como Ceftazidima.</li>
-            <li>ESBL Fenotípico Positivo?: La prueba de detección de beta-lactamasas de espectro extendido (ESBL) fue negativa.</li>
-            <li>La bacteria es resistente a Aztreonam?: La bacteria muestra resistencia al Aztreonam.</li>
-            <li>La bacteria es resistente a Carbapenems?: La bacteria muestra resistencia a algunos carbapenems como Ertapenem y Meropenem, pero no a todos, por ejemplo, Imipenem.</li>
-            <li>Carba-NP positivo?: La prueba Carba-NP fue negativa.</li>
-        </ol>
+        <div class="section">
+            <h3>Análisis de los Resultados</h3>
+            <ol>
+                <li>Inicio: Resistencia a Cefalosporinas de 3ra Generación: La bacteria muestra resistencia a las cefalosporinas de tercera generación como Ceftazidima.</li>
+                <li>ESBL Fenotípico Positivo?: La prueba de detección de beta-lactamasas de espectro extendido (ESBL) fue negativa.</li>
+                <li>La bacteria es resistente a Aztreonam?: La bacteria muestra resistencia al Aztreonam.</li>
+                <li>La bacteria es resistente a Carbapenems?: La bacteria muestra resistencia a algunos carbapenems como Ertapenem y Meropenem, pero no a todos, por ejemplo, Imipenem.</li>
+                <li>Carba-NP positivo?: La prueba Carba-NP fue negativa.</li>
+            </ol>
 
-        <p>En este punto, el diagrama sugiere que la bacteria tiene una posible carbapenemasa OXA-48, ya que la resistencia a TAZONAM es >=64, y puede dar falso negativo CarbaNP. Sin embargo, este es un análisis inicial y se necesitan más pruebas para confirmar este mecanismo de resistencia.</p>
-
-        <p>Proyecto realizado por: <a href="https://twitter.com/Dis_Trackted">@Dis_Trackted - Bastián Venegas, MD</a>. Diplomado en Enfermedades Infecciosas. Estudiante diplomado en Inteligencia Artificial en UC.cl.</p>
-        <p>Este proyecto tiene licencia MIT. Invitamos a las personas interesadas a contribuir siguiendo las prácticas habituales de los proyectos en GitHub, como el envío de solicitudes de pull request o contacto directo a través de Twitter. Este recurso tiene un propósito exclusivamente educativo y no debe emplearse como sustituto ni guía para brindar atención médica a un paciente concreto.</p>
-        <p>Nuestra intención es facilitar el aprendizaje de una habilidad tan compleja como el análisis básico de susceptibilidad para médicos no especialistas. Este recurso no pretende actualizarse de forma regular ni proporcionar heurísticas universales, dado la naturaleza evolutiva y rápida de la infectología y los mecanismos de resistencia, los cuales pueden variar según la ubicación geográfica, la exposición a diferentes antimicrobianos.</p>
+            <p>En este punto, el diagrama sugiere que la bacteria tiene una posible carbapenemasa OXA-48, ya que la resistencia a TAZONAM es >=64, y puede dar falso negativo CarbaNP. Sin embargo, este es un análisis inicial y se necesitan más pruebas para confirmar este mecanismo de resistencia.</p>
+        </div>
+        <div class="section">
+            <h3>Acerca del Proyecto</h3>
+            <p>Proyecto realizado por: <a href="https://twitter.com/Dis_Trackted">@Dis_Trackted - Bastián Venegas, MD</a>. Diplomado en Enfermedades Infecciosas. Estudiante diplomado en Inteligencia Artificial en UC.cl.</p>
+            <p>Este proyecto tiene licencia MIT. Invitamos a las personas interesadas a contribuir siguiendo las prácticas habituales de los proyectos en GitHub, como el envío de solicitudes de pull request o contacto directo a través de Twitter. Este recurso tiene un propósito exclusivamente educativo y no debe emplearse como sustituto ni guía para brindar atención médica a un paciente concreto.</p>
+            <p>Nuestra intención es facilitar el aprendizaje de una habilidad tan compleja como el análisis básico de susceptibilidad para médicos no especialistas. Este recurso no pretende actualizarse de forma regular ni proporcionar heurísticas universales, dado la naturaleza evolutiva y rápida de la infectología y los mecanismos de resistencia, los cuales pueden variar según la ubicación geográfica, la exposición a diferentes antimicrobianos.</p>
+        </div>
     </div>
     <script>
         function revealResults() {
