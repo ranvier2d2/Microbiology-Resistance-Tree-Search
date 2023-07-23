@@ -45,9 +45,7 @@
         F --> |"Combinación de Factores"| H(Mecanismo Combinado - Probable)
     `;
 
-    var graph = mermaid.render('graphDiv', graphDefinition, function(svgCode, bindFunctions){
-        document.getElementById('resistanceGraph').innerHTML = svgCode;
-    });
+    var graph = mermaid.render('resistanceGraph', graphDefinition);
 </script>
 
 <h2>Interpretación de Hipótesis</h2>
